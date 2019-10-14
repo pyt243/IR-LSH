@@ -26,12 +26,12 @@ class Cosine_Sig:
         SigDF.to_csv("cosine_signatures.csv")
 
 if __name__ == "__main__":
-        c = Cosine_Sig()
-        c.get_signatures()
+        # c = Cosine_Sig()
+        # c.get_signatures()
         Mdf = pd.read_csv("shingles_matrix.csv")
         Sdf = pd.read_csv("cosine_signatures.csv");
-        a1 = Mdf['2'].values
-        a2 = Sdf['2'].values
+        a1 = Mdf['3'].values
+        a2 = Sdf['3'].values
         b1 = Mdf['8'].values
         b2 = Sdf['8'].values
         c1 = np.dot(a1, b1)/(norm(a1)*norm(b1))
