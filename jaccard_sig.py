@@ -65,6 +65,6 @@ if __name__ == "__main__":
          for i in range(union):
              if a2[i] == b2[i]:
                  intersection = intersection + 1
-        
+
          c2 = intersection / union
          print(c1,c2)
