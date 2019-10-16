@@ -31,6 +31,7 @@ class Matrix:
         for t in text:
             for i in range(len(t)-k+1):
                 shingles.append(t[i:i+k])
+        shingles.sort()        
         shingles = set(shingles)
         return shingles
 

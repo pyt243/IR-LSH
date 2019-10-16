@@ -6,6 +6,7 @@ class Cosine_Sig:
 
     def __init__(self):
         self.sh_path = "shingles_matrix.csv"
+        self.hash_num = 5000
 
     def get_rand_planes(self,ndim,odim):
         rand_proj = np.random.randn(ndim,odim)
@@ -13,12 +14,12 @@ class Cosine_Sig:
 
     def get_signatures(self):
         Mdf = pd.read_csv(self.sh_path)
-        rand_proj = self.get_rand_planes(5000,len(Mdf['1'].values))
+        rand_proj = self.get_rand_planes(self.hash_num,len(Mdf['1'].values))
         col = len(Mdf.columns) - 2
-        Sig = [[0 for i in range(col+1)] for j in range(5000)]
+        Sig = [[0 for i in range(col+1)] for j in range(self.hash_num)]
         for i in range(1,col+1):
             doc = Mdf[str(i)].values
-            for j in range(5000):
+            for j in range(self.hash_num):
                 cos = np.dot(doc, rand_proj[j])
                 if cos >= 0:
                     Sig[j][i] = 1
@@ -26,8 +27,8 @@ class Cosine_Sig:
         SigDF.to_csv("cosine_signatures.csv")
 
 if __name__ == "__main__":
-        # c = Cosine_Sig()
-        # c.get_signatures()
+        c = Cosine_Sig()
+        c.get_signatures()
         Mdf = pd.read_csv("shingles_matrix.csv")
         Sdf = pd.read_csv("cosine_signatures.csv");
         a1 = Mdf['3'].values
