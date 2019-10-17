@@ -47,7 +47,6 @@ class Buckets:
                 for x in range(0, len(v)):
                     for y in range(x + 1, len(v)):
                         Bucket[v[x]][v[y]] += 1
-
         return Bucket
 
 
