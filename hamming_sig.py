@@ -2,12 +2,18 @@ import pandas as pd
 import numpy as np
 
 class Hamming_Sig:
+    """
+    Generates signatures of a matrix based on hamming distance
+    """
 
     def __init__(self):
         self.sh_path = "shingles_matrix.csv"
         self.hash_num = 5000
 
     def get_signatures(self):
+        """
+        Generates signatures of the input matrix and stores it
+        """
         Mdf = pd.read_csv(self.sh_path)
         M = Mdf.values
         col = len(Mdf.columns)-2

@@ -4,6 +4,9 @@ import random
 from numpy.linalg import norm
 
 class Jaccard_Sig:
+    """
+    Generates signatures of the input matrix based on  Jaccard similarity.
+    """
     hash_num = 5000
     max_shingles = 10**5
     MOD = 1000003
@@ -12,6 +15,14 @@ class Jaccard_Sig:
         self.sh_path = "shingles_matrix.csv"
 
     def get_rand_coeffs(self, k):
+        """
+        Generates random number which act of coefficients for random hash functions.
+
+        Args:
+            k (int) : Number of hash functions.
+        Returns:
+            list : Random coefficients of hash functions
+        """
         rand_list = []
 
         while k > 0:
@@ -26,6 +37,9 @@ class Jaccard_Sig:
         return rand_list
 
     def get_signatures(self):
+        """
+        Generates signatures of the input matrix and stores it
+        """
         Mdf = pd.read_csv(self.sh_path)
         A = self.get_rand_coeffs(self.hash_num)
         B = self.get_rand_coeffs(self.hash_num)

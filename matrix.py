@@ -4,10 +4,19 @@ import os
 import glob
 
 class Matrix:
+    """
+    Extract text from corpus and prepares the document index and shingles matrix (0-1 matrix)
+    """
     def __init__(self):
         self.path = r'corpus-20090418/'
 
     def retrieve_docs(self):
+        """
+        Function to retrieve docs, extract text from them and index the documents.
+
+        Returns:
+            list : Documents/text extracted from files
+        """
         direc = glob.glob(self.path + "*.txt")
         direc.sort()
         index=[]
@@ -26,16 +35,32 @@ class Matrix:
         return text
 
     def get_shingles(self,text):
+        """
+        Generates uniques shingles from the extracted text.
+
+        Args:
+            text (list) : A list of strings representing documents
+        Returns:
+            set : A set of possible shingles present in the corpus
+        """
         k = 5
         shingles = []
         for t in text:
             for i in range(len(t)-k+1):
                 shingles.append(t[i:i+k])
-        shingles.sort()        
+        shingles.sort()
         shingles = set(shingles)
         return shingles
 
     def create_matrix(self,shingles,text):
+        """
+        Prepares the 0-1 matrix from the extracted text and shingles and stores it.
+
+        Args:
+            shingles (set) : set of shingles
+            text (list) : List of strings repesenting documents
+
+        """
         mat=[]
         for s in shingles:
             row = []

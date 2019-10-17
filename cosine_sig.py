@@ -3,16 +3,31 @@ import numpy as np
 from numpy.linalg import norm
 
 class Cosine_Sig:
+    """
+    Generates signatures of the input matrix based on cosine similarity
+    """
 
     def __init__(self):
         self.sh_path = "shingles_matrix.csv"
         self.hash_num = 5000
 
     def get_rand_planes(self,ndim,odim):
+        """
+        Generates ndim number of random planes
+
+        Args:
+            ndim (int) : Required number of planes
+            odim (int) : The number of dimensions in each plane
+        Returns:
+            list : Random planes generated
+        """
         rand_proj = np.random.randn(ndim,odim)
         return rand_proj
 
     def get_signatures(self):
+        """
+        Generates signatures of the input matrix and stores it.
+        """
         Mdf = pd.read_csv(self.sh_path)
         rand_proj = self.get_rand_planes(self.hash_num,len(Mdf['1'].values))
         col = len(Mdf.columns) - 2

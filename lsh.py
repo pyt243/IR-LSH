@@ -3,13 +3,20 @@ import numpy as np
 import pandas as pd
 
 class Buckets:
-
-
+    """
+    Performs Loaclity Sensitive Hashing on generated Signatures.
+    """
     def __init__(self,path):
         self.sig_path=path
 
 
     def get_buckets(self):
+        """
+        Hashes columns based on bands
+
+        Returns:
+            list : Matrix which specifies the candidate pairs
+        """
         Sig_Mat=pd.read_csv(self.sig_path)
         col=len(Sig_Mat.columns)-1;
         Bucket=[[0 for x in range(col)] for y in range(col)]
