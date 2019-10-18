@@ -3,12 +3,14 @@ import numpy as np
 import os
 import glob
 
+
 class Matrix:
     """
     Extract text from corpus and prepares the document index and shingles matrix (0-1 matrix)
     """
+
     def __init__(self):
-        self.path = r'corpus-20090418/'
+        self.path = r"corpus-20090418/"
 
     def retrieve_docs(self):
         """
@@ -19,22 +21,22 @@ class Matrix:
         """
         direc = glob.glob(self.path + "*.txt")
         direc.sort()
-        index=[]
-        text=[]
+        index = []
+        text = []
         for i in range(len(direc)):
-            ind = [i+1,direc[i]]
+            ind = [i + 1, direc[i]]
             index.append(ind)
-            f = open(direc[i],"r",encoding="utf8", errors='ignore')
+            f = open(direc[i], "r", encoding="utf8", errors="ignore")
             s = ""
             for x in f:
-                if x != '\n':
-                    s=s+x.strip()
+                if x != "\n":
+                    s = s + x.strip()
             text.append(s)
-        ind_df = pd.DataFrame(index,columns=['index','document'])
-        ind_df.to_csv(r'index.csv')
+        ind_df = pd.DataFrame(index, columns=["index", "document"])
+        ind_df.to_csv(r"index.csv")
         return text
 
-    def get_shingles(self,text):
+    def get_shingles(self, text):
         """
         Generates uniques shingles from the extracted text.
 
@@ -46,13 +48,13 @@ class Matrix:
         k = 5
         shingles = []
         for t in text:
-            for i in range(len(t)-k+1):
-                shingles.append(t[i:i+k])
+            for i in range(len(t) - k + 1):
+                shingles.append(t[i : i + k])
         shingles.sort()
         shingles = set(shingles)
         return shingles
 
-    def create_matrix(self,shingles,text):
+    def create_matrix(self, shingles, text):
         """
         Prepares the 0-1 matrix from the extracted text and shingles and stores it.
 
@@ -61,7 +63,7 @@ class Matrix:
             text (list) : List of strings repesenting documents
 
         """
-        mat=[]
+        mat = []
         for s in shingles:
             row = []
             row.append(s)
@@ -72,13 +74,13 @@ class Matrix:
                     row.append(0)
             mat.append(row)
         matdf = pd.DataFrame(mat)
-        matdf.to_csv(r'shingles_matrix.csv')
+        matdf.to_csv(r"shingles_matrix.csv")
 
 
 if __name__ == "__main__":
     m = Matrix()
     d = m.retrieve_docs()
     print(d[8])
-    print(len(d[8])-4)
+    print(len(d[8]) - 4)
     x = m.get_shingles(d)
-    m.create_matrix(x,d)
+    m.create_matrix(x, d)
