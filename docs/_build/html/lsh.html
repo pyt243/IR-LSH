@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>lsh module &#8212; Plagiarism Checker using LSH  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main module" href="main.html" />
+    <link rel="prev" title="jaccard_sig module" href="jaccard_sig.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-lsh">
+<span id="lsh-module"></span><h1>lsh module<a class="headerlink" href="#module-lsh" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="lsh.get_candidates">
+<code class="sig-prename descclassname">lsh.</code><code class="sig-name descname">get_candidates</code><span class="sig-paren">(</span><em class="sig-param">sig_mat: pandas.core.frame.DataFrame</em>, <em class="sig-param">b</em>, <em class="sig-param">r</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lsh.html#get_candidates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lsh.get_candidates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs Loaclity Sensitive Hashing on generated Signatures.
+Hashes columns based on bands</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sig_mat</strong> (<em>str</em>) – Signature matrix generated using the LSH family</p></li>
+<li><p><strong>b</strong> (<em>int</em>) – Number of bands</p></li>
+<li><p><strong>r</strong> (<em>int</em>) – Number of rows per band</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The set of candidate pairs</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Plagiarism Checker using LSH</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cosine_sig.html">cosine_sig module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euclidean.html">euclidean module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hamming_sig.html">hamming_sig module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jaccard_sig.html">jaccard_sig module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lsh module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="jaccard_sig.html" title="previous chapter">jaccard_sig module</a></li>
+      <li>Next: <a href="main.html" title="next chapter">main module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Krut Patel, P Yedhu Tilak, Akhil Agarwal, Smit Sheth.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/lsh.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

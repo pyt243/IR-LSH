@@ -7,10 +7,12 @@ def get_candidates(sig_mat: pd.DataFrame, b, r):
     """
     Performs Loaclity Sensitive Hashing on generated Signatures.
     Hashes columns based on bands
+
     Args:
         sig_mat (str) : Signature matrix generated using the LSH family
         b (int) : Number of bands
         r (int) : Number of rows per band
+
     Returns:
         set : The set of candidate pairs
     """
